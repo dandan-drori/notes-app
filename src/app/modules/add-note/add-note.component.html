@@ -1,0 +1,22 @@
+<form #noteForm="ngForm" (ngSubmit)="addNote()">
+  <input
+    type="text"
+    [(ngModel)]="noteTitle"
+    name="note-title"
+    placeholder="Title"
+    required
+    autocomplete="off"
+  />
+  <input
+    type="text"
+    [(ngModel)]="noteText"
+    name="note-text"
+    placeholder="Text"
+    required
+    autocomplete="off"
+  />
+  <button class="add-note" type="submit" [disabled]="!noteForm.form.valid">
+    <span>Add Note</span>
+    <img src="../../../assets/icons/plus-sm.svg" alt="add">
+  </button>
+</form>

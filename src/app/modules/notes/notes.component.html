@@ -1,0 +1,12 @@
+<div class="notes-container" *ngIf="notes">
+  <ng-container *ngLet="searchInput$ | async as searchInput">
+    <app-note
+      *ngFor="let note of notes | notesFilter : searchInput"
+      [note]="note"
+      [searchInput]="searchInput"
+      (delete)="onDeleteNote($event)"
+      (lock)="onLockNote($event)"
+      (unlock)="onUnlockNote($event)"
+    ></app-note>
+  </ng-container>
+</div>

@@ -1,0 +1,18 @@
+<ng-container *ngIf="notes$ | async as notes">
+    <nav>
+        <a routerLink="/">Notes</a>
+        <a routerLink="/trash">Trash</a>
+    </nav>
+    <app-search-notes class="search-input"></app-search-notes>
+    <app-notes (deleteNote)="deleteNote($event, notes)" (lockNote)="lockNote($event, notes)"  (unlockNote)="openDialog(dialogMethodEnum.UNLOCK, $event, notes)" [searchInput$]="searchInput$" [notes]="notes"></app-notes>
+    <app-add-note (onAddNote)="addNote($event, notes)"></app-add-note>
+</ng-container>
+
+<dialog #dialog [open]="isPasswordDialogOpen$ | async" (close)="closeDialog()" (cancel)="closeDialog()">
+    <p>Enter your password:</p>
+    <form method="dialog">
+        <input type="password" name="password" [(ngModel)]="password">
+        <button type="submit" value="OK">OK</button>
+        <button type="submit" value="CANCEL">Cancel</button>
+    </form>
+</dialog>

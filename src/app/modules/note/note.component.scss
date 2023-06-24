@@ -1,0 +1,59 @@
+:host {
+    a {
+        text-decoration: none;
+        color: #050505;
+    }
+
+    .note {
+        box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+        border-radius: 5px;
+        width: fit-content;
+        padding: 3px 10px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        max-width: 300px;
+        cursor: pointer;
+
+        &-date-action-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            .note-delete {
+                cursor: pointer;
+                background: none;
+                border: none;
+                outline: none;
+            }
+        }
+
+        &-date {
+            font-size: 14px;
+        }
+
+        &-actions {
+            margin-left: 10px;
+        }
+
+        &-restore, &-lock, &-unlock {
+            outline: none;
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        &-title {
+            font-size: 16px;
+        }
+
+        &-text {
+            font-size: 14px;
+        }
+    }
+
+    .note-locked-warning {
+        display: flex;
+        justify-content: center;
+        margin: 6px 0;
+    }
+}

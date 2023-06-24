@@ -1,0 +1,54 @@
+<ng-container *ngIf="noteId | getNoteById : noteType as note$">
+  <ng-container *ngIf="note$ | async as note">
+    <ng-container *ngIf="!isNoteLocked || !note.password?.length else Password">
+      <a [routerLink]="backPath">
+        <img src="../../../assets/icons/arrow-circle-left.svg" alt="back">
+      </a>
+      <form
+        #noteForm="ngForm"
+        (ngSubmit)="editNote(noteTitle.value, noteText.value, note)"
+      >
+        <input
+          #noteTitle
+          [value]="note.title"
+          type="text"
+          name="note-title"
+          placeholder="Title"
+          required
+          autocomplete="off"
+          [autofocus]="true"
+        />
+        <input
+          #noteText
+          [value]="note.text"
+          type="text"
+          name="note-text"
+          placeholder="Text"
+          required
+          autocomplete="off"
+        />
+        <button class="edit-note" type="submit" [disabled]="!noteForm.form.valid">
+          <span>Edit Note</span>
+          <img src="../../../assets/icons/edit-02-sm.svg" alt="edit">
+        </button>
+      </form>
+    </ng-container>
+
+    <ng-template #Password>
+      <p *ngIf="!unlockAttempts; else PasswordAttempted">Enter your password:</p>
+      <input
+        type="password"
+        name="note-password"
+        [(ngModel)]="password"
+        [autofocus]="true"
+        (change)="submitPassword(note, password)"
+        required
+      />
+    </ng-template>
+
+  </ng-container>
+</ng-container>
+
+<ng-template #PasswordAttempted>
+  <p>Incorrect password entered.</p>
+</ng-template>

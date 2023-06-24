@@ -1,0 +1,17 @@
+<ng-container *ngIf="trashNotes$ | async as trashNotes">
+    <nav>
+        <a routerLink="/">Notes</a>
+        <a routerLink="/trash">Trash</a>
+    </nav>
+    <button class="empty-trash" (click)="emptyTrash()">
+        <span>Empty Trash</span>
+        <img src="../../../assets/icons/trash-03-sm.svg" alt="trash">
+    </button>
+    <app-note
+        *ngFor="let note of trashNotes"
+        [note]="note"
+        [noteType]="noteType"
+        (delete)="onDeleteNote($event, trashNotes)"
+        (restore)="onRestoreNote($event, trashNotes)"
+    ></app-note>
+</ng-container>

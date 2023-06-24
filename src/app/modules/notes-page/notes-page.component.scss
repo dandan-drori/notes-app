@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .search-input {
+        margin: 20px 0 50px 0;
+    }
+
+    dialog::backdrop {
+        background: rgba(0, 0, 0, 0.25);
+    }
+}

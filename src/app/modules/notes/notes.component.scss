@@ -1,0 +1,9 @@
+:host {
+    .notes-container {
+        display: grid;
+        grid-template-columns: repeat(5, max-content);
+        grid-auto-rows: auto;
+        gap: 15px;
+        padding: 5px 15px;
+    }
+}

@@ -1,0 +1,30 @@
+<a [routerLink]="editNotePath" [queryParams]="{ noteType }">
+  <div class="note">
+    <div class="note-date-action-container">
+      <p class="note-date" [innerHTML]="((note.lastModified || note.createdAt) | date: dateFormat) | highlightMatches: searchInput"></p>
+      <div class="note-actions">
+        <button *ngIf="noteType === 'trash'" class="note-restore" (click)="$event.preventDefault(); $event.stopPropagation(); restoreNote()">
+          <img src="../../../assets/icons/refresh-ccw-01-sm.svg" alt="restore">
+        </button>
+        <button *ngIf="noteType === 'notes' && !note.password" class="note-lock" (click)="$event.preventDefault(); $event.stopPropagation(); lockNote()">
+          <img src="../../../assets/icons/lock-01-sm.svg" alt="lock">
+        </button>
+        <button *ngIf="noteType === 'notes' && note.password" class="note-unlock" (click)="$event.preventDefault(); $event.stopPropagation(); unlockNote()">
+          <img src="../../../assets/icons/lock-unlocked-01-sm.svg" alt="unlock">
+        </button>
+        <button class="note-delete" (click)="$event.preventDefault(); $event.stopPropagation(); deleteNote()">
+          <img src="../../../assets/icons/trash-03-sm.svg" alt="delete">
+        </button>
+      </div>
+    </div>
+    <p class="note-title" [innerHTML]="note.title | highlightMatches: searchInput"></p>
+    <p *ngIf="!note.password; else lockedNoteWarning" class="note-text" [innerHTML]="(note.text | multilineNoteText) | highlightMatches: searchInput">
+    </p>
+  </div>
+</a>
+
+<ng-template #lockedNoteWarning>
+  <p class="note-locked-warning">
+    <img src="../../../assets/icons/lock-01.svg" alt="locked">
+  </p>
+</ng-template>
