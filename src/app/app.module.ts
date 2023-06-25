@@ -1,3 +1,4 @@
+import { SettingsPageModule } from './modules/settings-page/settings-page.module';
 import { TrashPageModule } from './modules/trash-page/trash-page.module'
 import { EditNoteModule } from './modules/edit-note/edit-note.module'
 import { NotesPageModule } from './modules/notes-page/notes-page.module';
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     NotesPageModule,
     EditNoteModule,
     TrashPageModule,
+    SettingsPageModule,
   ],
   providers: [NoteService],
   bootstrap: [AppComponent]

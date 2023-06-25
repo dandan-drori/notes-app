@@ -1,3 +1,4 @@
+import { SettingsPageComponent } from './modules/settings-page/settings-page.component'
 import { TrashPageComponent } from './modules/trash-page/trash-page.component'
 import { EditNoteComponent } from './modules/edit-note/edit-note.component'
 import { NotesPageComponent } from './modules/notes-page/notes-page.component'
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'trash',
     component: TrashPageComponent,
+  },
+  {
+    path: 'settings',
+    component: SettingsPageComponent,
   },
   {
     path: ':noteId',

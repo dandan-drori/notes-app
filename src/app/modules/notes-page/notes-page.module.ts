@@ -1,5 +1,5 @@
+import { NavigationModule } from './../navigation/navigation.module'
 import { FormsModule } from '@angular/forms'
-import { RouterModule } from '@angular/router'
 import { AddNoteModule } from './../add-note/add-note.module'
 import { SearchNotesModule } from './../search-notes/search-notes.module'
 import { NotesModule } from './../notes/notes.module'
@@ -18,7 +18,7 @@ import { NotesPageComponent } from './notes-page.component';
     SearchNotesModule,
     NotesModule,
     AddNoteModule,
-    RouterModule,
+    NavigationModule,
   ],
   exports: [
     NotesPageComponent,

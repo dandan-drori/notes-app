@@ -1,0 +1,19 @@
+<app-navigation></app-navigation>
+<ng-container *ngIf="settings$ | async as settings">
+    <p>{{settings|json}}</p>
+    <form>
+        <label for="sortBy">Sort By:</label>
+        <select name="sortBy" id="sortBy">
+            <option value="createdAt">Created At</option>
+            <option value="title">Title</option>
+            <option value="text">Text</option>
+        </select>
+        <label for="sortDirection">Sort Direction:</label>
+        <select name="sortDirection" id="sortDirection">
+            <option value="desc">Descending</option>
+            <option value="asc">Ascending</option>
+        </select>
+        <label for="mainPassword">Main Password:</label>
+        <input id="mainPassword" type="password" />
+    </form>
+</ng-container>

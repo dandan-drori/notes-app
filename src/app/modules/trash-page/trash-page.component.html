@@ -1,8 +1,5 @@
 <ng-container *ngIf="trashNotes$ | async as trashNotes">
-    <nav>
-        <a routerLink="/">Notes</a>
-        <a routerLink="/trash">Trash</a>
-    </nav>
+    <app-navigation></app-navigation>
     <button class="empty-trash" (click)="emptyTrash()">
         <span>Empty Trash</span>
         <img src="../../../assets/icons/trash-03-sm.svg" alt="trash">

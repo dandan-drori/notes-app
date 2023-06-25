@@ -1,0 +1,24 @@
+:host {
+    .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .navigation-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 30%;
+
+            a {
+                text-decoration: none;
+                color: #050505;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+                &.active {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
